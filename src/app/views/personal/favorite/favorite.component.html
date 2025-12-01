@@ -6,8 +6,12 @@
     <div class="favorites-empty" *ngIf="!products || (products && products.length === 0)">
       <div>В избранном нет товаров</div>
     </div>
-    <div class="favorite-products" *ngIf="products">
-      <div class="favorite-product" *ngFor="let product of products">
+    <div class="favorite-products" *ngIf="products" >
+      <favorite-product *ngFor="let product of products"
+                        [product]="product"
+                        [countInCart]="product.quantity!"
+                        (remove)="removeFromFavorites($event)"></favorite-product>
+      <!--<div class="favorite-product" *ngFor="let product of products">
         <div class="favorite-product-image" style="background-image: url({{serverStaticPath + product.image}})">
         </div>
         <div class="favorite-product-name">
@@ -18,7 +22,7 @@
         </div>
         <count-selector [count]="count" (onCountChange)="updateCount($event)"></count-selector>
         <div class="favorite-product-action">
-          <!--<button class="button" routerLink="/product/{{product.url}}">В корзину</button>-->
+          <button class="button" routerLink="/product/{{product.url}}">В корзину</button>
           <button class="button" *ngIf="!countInCart" (click)="addToCart()">В корзину</button>
           <button class="button button-transparent button-in-cart" *ngIf="countInCart" (click)="removeFromCart()">
             <span>В корзине</span>
@@ -31,7 +35,7 @@
             <line x1="13.9238" y1="2.62996" x2="1.90301" y2="14.6508" stroke="#A8ABA7" stroke-linecap="round"/>
           </svg>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </div>

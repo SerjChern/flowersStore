@@ -8,6 +8,7 @@ import { CategoryFilterComponent } from './components/category-filter/category-f
 import { CountSelectorComponent } from './components/count-selector/count-selector.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { FavoriteProductComponent } from './components/favorite-product/favorite-product.component';
 
 
 
@@ -17,7 +18,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     ProductCardComponent,
     CategoryFilterComponent,
     CountSelectorComponent,
-    LoaderComponent
+    LoaderComponent,
+    FavoriteProductComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     ProductCardComponent,
     CategoryFilterComponent,
     CountSelectorComponent,
-    LoaderComponent
+    LoaderComponent,
+    FavoriteProductComponent
   ]
 })
 export class SharedModule { }
