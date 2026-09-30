@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
     password: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s])\S{8,}$/)]],
     passwordRepeat: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s])\S{8,}$/)]],
     agree: [false, [Validators.required]],
-  })
+  });
   constructor(private fb: FormBuilder,
               private authService: AuthService,
               private _snackBar: MatSnackBar,
@@ -62,7 +62,7 @@ export class SignupComponent implements OnInit {
               this._snackBar.open('Auth error');
             }
           }
-        })
+        });
     }
   }
 

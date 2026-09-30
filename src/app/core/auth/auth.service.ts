@@ -22,19 +22,19 @@ export class AuthService {
 
   login(email: string, password: string, rememberMe: boolean): Observable<DefaultResponseType | LoginResponseType> {
     return this.http.post<DefaultResponseType | LoginResponseType>(environment.api + 'login',
-      {email, password, rememberMe})
+      {email, password, rememberMe});
   }
 
   signup(email: string, password: string, passwordRepeat: string): Observable<DefaultResponseType | LoginResponseType> {
     return this.http.post<DefaultResponseType | LoginResponseType>(environment.api + 'signup',
-      {email, password, passwordRepeat})
+      {email, password, passwordRepeat});
   }
 
   logout(): Observable<DefaultResponseType> {
     const tokens = this.getTokens();
     if (tokens && tokens.refreshToken) {
       return this.http.post<DefaultResponseType>(environment.api + 'logout',
-        {refreshToken: tokens.refreshToken})
+        {refreshToken: tokens.refreshToken});
     }
     throw throwError(()=> 'Can not fond token');
   }
@@ -43,7 +43,7 @@ export class AuthService {
     const tokens = this.getTokens();
     if (tokens && tokens.refreshToken) {
       return this.http.post<DefaultResponseType | LoginResponseType>(environment.api + 'refresh',
-        {refreshToken: tokens.refreshToken})
+        {refreshToken: tokens.refreshToken});
     }
     throw throwError(()=> 'Can not refresh token');
   }
@@ -70,7 +70,7 @@ export class AuthService {
     return {
       accessToken: localStorage.getItem(this.accessTokenKey),
       refreshToken: localStorage.getItem(this.refreshTokenKey)
-    }
+    };
   }
 
   get userId(): string | null {

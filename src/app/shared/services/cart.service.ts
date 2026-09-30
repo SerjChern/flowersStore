@@ -41,7 +41,7 @@ export class CartService {
             let count = 0;
             (data as CartType).items.forEach(item => {
               count += item.quantity;
-            })
+            });
             this.setCount(count);
           }
 

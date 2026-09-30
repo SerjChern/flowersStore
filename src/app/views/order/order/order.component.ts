@@ -45,7 +45,7 @@ export class OrderComponent implements OnInit {
     entrance: [''],
     apartment: [''],
     comment: [''],
-  })
+  });
 
   @ViewChild('popup')popup!: TemplateRef<ElementRef>;
 
@@ -73,7 +73,7 @@ export class OrderComponent implements OnInit {
         }
         this.calculateTotal();
       }
-    )
+    );
     if (this.authService.getIsLoggedIn()){
       this.userService.getUserInfo()
         .subscribe((data: UserInfoType | DefaultResponseType) => {
@@ -94,7 +94,7 @@ export class OrderComponent implements OnInit {
             entrance: userInfo.entrance ? userInfo.entrance : '',
             apartment: userInfo.apartment ? userInfo.apartment : '',
             comment: '',
-          }
+          };
           this.orderForm.setValue(paramsToUpdate);
           this.orderForm.patchValue({
             deliveryType: userInfo.deliveryType ?? DeliveryType.delivery
@@ -102,7 +102,7 @@ export class OrderComponent implements OnInit {
 
           // Also update component property
           this.deliveryType = userInfo.deliveryType ?? DeliveryType.delivery;
-        })
+        });
     }
   }
 
@@ -114,7 +114,7 @@ export class OrderComponent implements OnInit {
       this.cart.items.forEach((element) => {
         this.totalAmount += element.quantity * element.product.price;
         this.totalCount += element.quantity;
-      })
+      });
     }
   }
 
@@ -151,7 +151,7 @@ export class OrderComponent implements OnInit {
         phone: this.orderForm.value.phone,
         paymentType: this.orderForm.value.paymentType,
         email: this.orderForm.value.email,
-      }
+      };
 
       if (this.deliveryType === DeliveryType.delivery){
         if(this.orderForm.value.street){
@@ -183,7 +183,7 @@ export class OrderComponent implements OnInit {
             .subscribe(() => {
               this.router.navigate(['/']);
               this.cartService.setCount(0);
-            })
+            });
         },
         error: (errorResponse: HttpErrorResponse) => {
           if (errorResponse.error && errorResponse.error.message) {

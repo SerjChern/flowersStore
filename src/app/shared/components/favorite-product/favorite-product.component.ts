@@ -32,7 +32,7 @@ export class FavoriteProductComponent implements OnInit {
           throw new Error((data as DefaultResponseType).message);
         }
         this.countInCart = this.count;
-      })
+      });
   }
 
   removeFromCart(): void {
@@ -43,7 +43,7 @@ export class FavoriteProductComponent implements OnInit {
         }
         this.countInCart = 0;
         this.count = 1;
-      })
+      });
   }
 
   updateCount(value: number): void {
@@ -55,7 +55,7 @@ export class FavoriteProductComponent implements OnInit {
             throw new Error((data as DefaultResponseType).message);
           }
           this.countInCart = this.count;
-        })
+        });
     }
   }
 

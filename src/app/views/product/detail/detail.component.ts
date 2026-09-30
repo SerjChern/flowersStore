@@ -37,7 +37,7 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
     this.authService.isLogged$.subscribe((isLoggedIn: boolean) => {
       this.isLogged = isLoggedIn;
-    })
+    });
 
     this.activatedRoute.params.subscribe(params => {
       this.productService.getProduct(params['url'])
@@ -59,7 +59,7 @@ export class DetailComponent implements OnInit {
                 }
               }
 
-            })
+            });
           if(!this.authService.getIsLoggedIn()){
             this.favoriteService.getFavorites()
               .subscribe((data: FavoriteType[] | DefaultResponseType) => {
@@ -76,15 +76,15 @@ export class DetailComponent implements OnInit {
               });
           }
           }
-        )
-    })
+        );
+    });
 
     this.productService.getBestProducts()
       .subscribe((data: ProductType[]) => {
           this.products = data;
           console.log(this.products);
         }
-      )
+      );
   }
 
   updateCount(value: number){
@@ -96,7 +96,7 @@ export class DetailComponent implements OnInit {
             throw new Error((data as DefaultResponseType).message);
           }
           this.product.countInCart = this.count;
-        })
+        });
     }
   }
 
@@ -107,12 +107,12 @@ export class DetailComponent implements OnInit {
           throw new Error((data as DefaultResponseType).message);
         }
         this.product.countInCart = this.count;
-      })
+      });
   }
 
   updateFavorite(){
     if(!this.authService.getIsLoggedIn()){
-      this._snackBar.open('you need to be authorised')
+      this._snackBar.open('you need to be authorised');
       return;
     }
     if (this.product.isInFavorite) {
@@ -122,7 +122,7 @@ export class DetailComponent implements OnInit {
             throw new Error(data.message);
           }
           this.product.isInFavorite = false;
-        })
+        });
     } else {
       this.favoriteService.addFavorite(this.product.id)
         .subscribe((data: FavoriteType | DefaultResponseType) => {
@@ -131,7 +131,7 @@ export class DetailComponent implements OnInit {
           }
 
           this.product.isInFavorite = true;
-        })
+        });
     }
 
   }
@@ -144,7 +144,7 @@ export class DetailComponent implements OnInit {
         }
         this.product.countInCart = 0;
         this.count = 1;
-      })
+      });
   }
 
   customOptions: OwlOptions = {
@@ -171,5 +171,5 @@ export class DetailComponent implements OnInit {
       }
     },
     nav: false
-  }
+  };
 }

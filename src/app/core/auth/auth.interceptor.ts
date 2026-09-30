@@ -71,9 +71,9 @@ export class AuthInterceptor implements HttpInterceptor {
         catchError(error => {
           this.authService.removeTokens();
           this.router.navigate(['/']);
-          return throwError(() => error)
+          return throwError(() => error);
         })
-      )
+      );
 
   }
 }

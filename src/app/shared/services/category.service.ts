@@ -43,11 +43,11 @@ export class CategoryService {
                     url: item.url,
                   }
                 ]
-              })
+              });
             }
 
 
-          })
+          });
           return array;
         })
       );

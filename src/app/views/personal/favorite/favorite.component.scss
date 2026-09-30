@@ -20,5 +20,15 @@
         margin-top: 10px;
       }
     }
+    .favorite-products{
+      .favorite-product{
+        &:first-child{
+          padding-top: 0;
+          margin-top: 0;
+          border-top: 0;
+        }
+      }
+
+    }
   }
 }

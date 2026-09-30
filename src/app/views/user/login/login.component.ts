@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
     rememberMe: [false],
-  })
+  });
   constructor(private fb: FormBuilder,
               private authService: AuthService,
               private _snackBar: MatSnackBar,
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
               this._snackBar.open('Auth error');
             }
           }
-        })
+        });
     }
   }
 

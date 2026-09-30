@@ -71,11 +71,11 @@ export class CatalogComponent implements OnInit {
                   this.processCatalog();
                 }
               }
-            )
+            );
         } else {
           this.processCatalog();
         }
-      })
+      });
   }
 
   processCatalog(){
@@ -97,33 +97,33 @@ export class CatalogComponent implements OnInit {
                   this.appliedFilters.push({
                     name: foundType.name,
                     urlParam: foundType.url,
-                  })
+                  });
                 }
               }
-            })
+            });
             if (this.activeParams.heightFrom){
               this.appliedFilters.push({
                 name: 'Высота от: ' + this.activeParams.heightFrom + ' см',
                 urlParam: 'heightFrom',
-              })
+              });
             }
             if (this.activeParams.heightTo){
               this.appliedFilters.push({
                 name: 'Высота до: ' + this.activeParams.heightTo + ' см',
                 urlParam: 'heightTo',
-              })
+              });
             }
             if (this.activeParams.diameterFrom){
               this.appliedFilters.push({
                 name: 'Диаметр от: ' + this.activeParams.diameterFrom + ' см',
                 urlParam: 'diameterFrom',
-              })
+              });
             }
             if (this.activeParams.diameterTo){
               this.appliedFilters.push({
                 name: 'Диаметр до: ' + this.activeParams.diameterTo + ' см',
                 urlParam: 'diameterTo',
-              })
+              });
             }
             this.productService.getProducts(this.activeParams)
               .subscribe(data => {
@@ -134,11 +134,11 @@ export class CatalogComponent implements OnInit {
                 }
                 if (this.cart && this.cart.items.length > 0) {
                   this.products = data.items.map(product =>{
-                    const productInCart = this.cart?.items.find(item => item.product.id === product.id)
+                    const productInCart = this.cart?.items.find(item => item.product.id === product.id);
                     if (productInCart){
-                      product.countInCart = productInCart.quantity
+                      product.countInCart = productInCart.quantity;
                     }
-                    return product
+                    return product;
                   });
                 } else {
                   this.products = data.items;
@@ -150,12 +150,12 @@ export class CatalogComponent implements OnInit {
                       product.isInFavorite = true;
                     }
                     return product;
-                  })
+                  });
                 }
-              })
+              });
 
-          })
-      })
+          });
+      });
   }
 
   removeAppliedFilter(AppleidFilter: AppliedFilterType){

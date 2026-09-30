@@ -39,7 +39,7 @@ export class ProductCardComponent implements OnInit {
 
     this.authService.isLogged$.subscribe((isLoggedIn: boolean) => {
       this.isLogged = isLoggedIn;
-    })
+    });
   }
 
   addToCart(): void {
@@ -49,7 +49,7 @@ export class ProductCardComponent implements OnInit {
           throw new Error((data as DefaultResponseType).message);
         }
         this.countInCart = this.count;
-      })
+      });
   }
 
   updateCount(value: number): void {
@@ -61,7 +61,7 @@ export class ProductCardComponent implements OnInit {
             throw new Error((data as DefaultResponseType).message);
           }
           this.countInCart = this.count;
-        })
+        });
     }
 
   }
@@ -74,12 +74,12 @@ export class ProductCardComponent implements OnInit {
         }
         this.countInCart = 0;
         this.count = 1;
-      })
+      });
   }
 
   updateFavorite(){
     if(!this.authService.getIsLoggedIn()){
-      this._snackBar.open('you need to be authorised')
+      this._snackBar.open('you need to be authorised');
       return;
     }
     if (this.product.isInFavorite) {
@@ -89,7 +89,7 @@ export class ProductCardComponent implements OnInit {
             throw new Error(data.message);
           }
           this.product.isInFavorite = false;
-        })
+        });
     } else {
       this.favoriteService.addFavorite(this.product.id)
         .subscribe((data: FavoriteType | DefaultResponseType) => {
@@ -98,7 +98,7 @@ export class ProductCardComponent implements OnInit {
           }
 
           this.product.isInFavorite = true;
-        })
+        });
     }
 
   }

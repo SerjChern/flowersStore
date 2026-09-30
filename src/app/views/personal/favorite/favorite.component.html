@@ -7,7 +7,7 @@
       <div>В избранном нет товаров</div>
     </div>
     <div class="favorite-products" *ngIf="products" >
-      <favorite-product *ngFor="let product of products"
+      <favorite-product class="favorite-product" *ngFor="let product of products"
                         [product]="product"
                         [countInCart]="product.quantity!"
                         (remove)="removeFromFavorites($event)"></favorite-product>

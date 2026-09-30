@@ -44,7 +44,7 @@ export class FavoriteComponent implements OnInit {
         this.productsInCart = data as CartType;
         this.productsInCart.items.forEach(item => {
           return this.namesInCart.push({name: item.product.name, quantity: item.quantity});
-        })
+        });
 
         const cartQuantityMap = new Map<string, number>();
         this.productsInCart.items.forEach(item => {
@@ -62,7 +62,7 @@ export class FavoriteComponent implements OnInit {
         });
 
         console.log(this.products);
-      })
+      });
   }
 
   removeFromFavorites(id: string) {
@@ -72,7 +72,7 @@ export class FavoriteComponent implements OnInit {
           throw new Error(data.message);
         }
         this.products = this.products.filter(item => item.id !== id);
-      })
+      });
   }
 
 }
